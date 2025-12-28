@@ -1,0 +1,13 @@
+version: "3"
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - db:/data
+    environment:
+      DATABASE_URL: sqlite:////data/app.db
+      WEBHOOK_SECRET: ${WEBHOOK_SECRET}
+volumes:
+  db:
